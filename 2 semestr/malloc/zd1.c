@@ -1,7 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 unsigned *f(unsigned *p)
 {
+  unsigned length = 0;
+  while (p[length] != 0)
+  {
+    length++;
+  }
+
+  unsigned *result = malloc((length + 1) * sizeof(unsigned));
+
+  for (unsigned i = 0; i <= length; i++)
+  {
+    result[i] = p[i];
+  }
+
+  return result;
 }
 
 int main()
@@ -13,6 +28,9 @@ int main()
   {
     printf("%d\n", *q);
   }
+  printf("0");
+
+  free(w);
 
   return 0;
 }
